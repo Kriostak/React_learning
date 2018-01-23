@@ -1,21 +1,61 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import Person from './Person/Person';
 
-const Persons = (props) => {
-    return props.persons.map((item, index) => {
-        return (
-                <Person
-                    key={item.id}  
-                    name={item.name}
-                    age={item.age}
-                    removeHandler={props.deleteClick.bind(this, index)}
-                    changeHandler={props.changeTipe.bind(this, item.id)}>
-                    
-                    {item.hibbies}
+class Persons extends PureComponent {
 
-                </Person>
-                );
-    })
+    constructor(props) {
+        console.log('[Persons.js] Inside constructor(props) ', props);
+        super(props);
+
+    }
+
+    componentWillMount() {
+        console.log('[Persons.js] Inside componentWillMount() ');
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('[UPDATE Persons.js] Inside componentWillReceiveProps(nextProps) ', nextProps);
+    }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log('[UPDATE Persons.js] inside shouldComponentUpdate(nextProps, nextState)', nextProps, nextState);
+    //     return nextProps.persons !== this.props.persons || 
+    //            nextProps.changeHandler !== this.props.changed || 
+    //            nextProps.removeHandler !== this.props.removeHandler;
+    //     // return true;
+    // }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('[UPDATE Persons.js] Inside componentWillUpdate(nextProps, nextState)', nextProps, nextState);
+    }
+
+    render() {
+        console.log('[Persons.js] Inside render() ');
+        return this.props.persons.map((item, index) => {
+            return (
+                    <Person
+                        key={item.id}  
+                        name={item.name}
+                        age={item.age}
+                        removeHandler={this.props.deleteClick.bind(this, index)}
+                        changeHandler={this.props.changeTipe.bind(this, item.id)}>
+                        
+                        {item.hibbies}
+    
+                    </Person>
+                    );
+        });
+
+    }
+
+    componentDidUpdate() {
+        console.log('[UPDATE Persons.js] Inside componentDidUpdate() ');
+    }
+
+    componentDidMount() {
+        console.log('[Persons.js] Inside componentDidMount() ');
+    }
+    
 }
 
 export default Persons;
