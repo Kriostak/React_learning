@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
-import styles from './Person.css';
+import PropTypes from 'prop-types';
 
+import styles from './Person.css';
+// import WithClass from '../../../hoc/WithClass';
+import Aux from '../../../hoc/Aux';
+import WithClassAnother from '../../../hoc/WithClassAnother';
 
 class Person extends Component {
 
@@ -17,12 +21,18 @@ class Person extends Component {
     render() {
         console.log('[Person.js] Inside render() ');
         return (
-            <div className={styles.Person}>
+            // <WithClass classes={styles.Person}>
+            <Aux>
                 <button onClick={this.props.removeHandler}>Remove</button>
                 <p>I'm a {this.props.name} and I am {this.props.age} years old!</p>
                 <p>{this.props.children}</p>
-                <input type="text" onChange={this.props.changeHandler} value={this.props.name} />
-            </div>
+                <input 
+                    type="text" 
+                    onChange={this.props.changeHandler} 
+                    value={this.props.name}
+                    ref={(someName) => { this.someAnotherName = someName }} />
+            </Aux>
+            // </WithClass>
         );
         // return [
         //     <button key="1" onClick={this.props.removeHandler}>Remove</button>,
@@ -35,8 +45,19 @@ class Person extends Component {
 
     componentDidMount() {
         console.log('[Person.js] Inside componentWillMount() ');
+        if (this.props.position === 0) {
+            this.someAnotherName.focus();
+        }
+        
     }
 
 }
 
-export default Person;
+Person.propTypes = {
+    removeHandler: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changeHandler: PropTypes.func
+};
+
+export default WithClassAnother(Person, styles.Person);
