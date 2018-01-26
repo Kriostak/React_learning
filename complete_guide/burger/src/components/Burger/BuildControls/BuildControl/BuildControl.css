@@ -6,6 +6,10 @@
     padding: 5px 0 0 0;
 }
 
+.BuildControl .Label {
+    width: 100px;
+}
+
 .BuildControl button {
     display: block;
     font: inherit;
@@ -21,13 +25,16 @@
     background-color: #f7ba75;
     color: white;
 }
+.BuildControl .Less[disabled] {
+    opacity: .3;
+}
 
 .BuildControl .More {
     background-color: #8f5e1e;
     color: white;
 }
 
-.BuildControl .Less:hover, .BuildControl .Less:active {
+.BuildControl .Less:not([disabled]):hover, .BuildControl .Less:not([disabled]):active {
     background-color: #daa972;
     color:white;
 }
