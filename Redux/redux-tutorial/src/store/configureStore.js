@@ -1,9 +1,15 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
 
 import rootReducer from '../reducers'
 
 const configureStore = (initalState) => {
-    const store = createStore(rootReducer, initalState)
+    const logger = createLogger()
+    const store = createStore(
+        rootReducer, 
+        initalState,
+        applyMiddleware(thunk, logger))
 
     if (module.hot) {
         module.hot.accept('../reducers', () => {

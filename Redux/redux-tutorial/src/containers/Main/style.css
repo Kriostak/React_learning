@@ -1,0 +1,9 @@
+.main {
+    opacity: 1;
+    transition: all 300ms ease;
+}
+
+.main.loading {
+    opacity: 0;
+    pointer-events: none;
+}
