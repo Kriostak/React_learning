@@ -23,10 +23,10 @@ const Courses = (props) => (
       </ul>
     </div>
   
-    <Route exact path={props.match.url} render={() => <Redirect  to={`${props.match.url}/html`} />} />
-    <Route path={`${props.match.url}/html`} render={() => <HTML />} />
-    <Route path={`${props.match.url}/css`} render={() => <CSS />} />
-    <Route path={`${props.match.url}/javascript`} render={() => <JavaScript />} />
+    <Route exact path={props.match.path} render={() => <Redirect  to={`${props.match.path}/html`} />} />
+    <Route path={`${props.match.path}/html`} render={() => <HTML />} />
+    <Route path={`${props.match.path}/css`} render={() => <CSS />} />
+    <Route path={`${props.match.path}/javascript`} render={() => <JavaScript />} />
 
   </div>
 );
