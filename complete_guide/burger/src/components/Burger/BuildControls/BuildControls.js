@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BuildControl from './BuildControl/BuildControl';
+import BuildControl from './BuildControl';
 
 import styles from './BuildControls.css';
 
