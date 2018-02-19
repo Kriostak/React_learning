@@ -5,7 +5,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    z-index: 200;
+    z-index: 500;
     background-color: white;
     padding: 32px 16px;
     box-sizing: border-box;
@@ -14,12 +14,6 @@
 
 .Logo {
     height: 80%;
-}
-
-@media screen and (max-width: 500px) {
-    .SideDrawer {
-        display: none;
-    }
 }
 
 .Open {
@@ -31,4 +25,5 @@
 
 .Logo {
     height: 11%;
+    margin-bottom: 32px;
 }
