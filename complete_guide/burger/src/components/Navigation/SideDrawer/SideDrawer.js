@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Logo from '../../Logo'
 import NavigationItems from '../NavigationItems'
 import Backdrop from '../../UI/Backdrop'
-import Aux from '../../../hoc/Aux'
+import Wrapper from '../../../hoc/Wrapper'
 
 import styles from './SideDrawer.css'
 
@@ -15,7 +15,7 @@ class SideDrawer extends Component {
             attachedClasses = [styles.SideDrawer, styles.Open]
         }
         return (
-            <Aux>
+            <Wrapper>
                 <Backdrop show={this.props.open} hideBackdrop={this.props.closed} />
                 <div className={attachedClasses.join(' ')}>
                     <div className={styles.Logo}>
@@ -25,7 +25,7 @@ class SideDrawer extends Component {
                         <NavigationItems />
                     </nav>
                 </div>
-            </Aux>
+            </Wrapper>
         );
     }
 }

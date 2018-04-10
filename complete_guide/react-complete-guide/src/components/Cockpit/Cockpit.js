@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Cockpit.css';
-import Aux from '../../hoc/Aux';
+import Wrapper from '../../hoc/Wrapper';
 
 const Cockpit = (props) => {
 
@@ -23,14 +23,14 @@ const Cockpit = (props) => {
     }
 
     return (
-        <Aux>
+        <Wrapper>
             <h1>Hi, I'm React App and my title is {props.appTitle}</h1>
             <p className={props.classesList}>It is king of magic.</p>
 
             <button 
                 className = {btnClass}
                 onClick={props.toggleList}>Toggle Persons</button>
-        </Aux>
+        </Wrapper>
     );
 
 };

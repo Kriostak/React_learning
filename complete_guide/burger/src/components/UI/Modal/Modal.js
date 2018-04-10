@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Backdrop from '../Backdrop/Backdrop';
-import Aux from '../../../hoc/Aux';
+import Wrapper from '../../../hoc/Wrapper';
 
 import styles from './Modal.css';
 
@@ -19,12 +19,12 @@ class Modal extends Component {
         let displayModalClass = this.props.show ? styles.ShowModal: '';
 
         return (
-            <Aux>
+            <Wrapper>
                 <Backdrop show={this.props.show} hideBackdrop={this.props.hideBackdrop} />
                 <div className={styles.Modal + ' ' + displayModalClass}>
                     {this.props.children}
                 </div>
-            </Aux>
+            </Wrapper>
         );
     }
 }

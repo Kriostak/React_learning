@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Person.css';
 // import WithClass from '../../../hoc/WithClass';
-import Aux from '../../../hoc/Aux';
+import Wrapper from '../../../hoc/Wrapper';
 import WithClassAnother from '../../../hoc/WithClassAnother';
 
 class Person extends Component {
@@ -22,7 +22,7 @@ class Person extends Component {
         console.log('[Person.js] Inside render() ');
         return (
             // <WithClass classes={styles.Person}>
-            <Aux>
+            <Wrapper>
                 <button onClick={this.props.removeHandler}>Remove</button>
                 <p>I'm a {this.props.name} and I am {this.props.age} years old!</p>
                 <p>{this.props.children}</p>
@@ -31,7 +31,7 @@ class Person extends Component {
                     onChange={this.props.changeHandler} 
                     value={this.props.name}
                     ref={(someName) => { this.someAnotherName = someName }} />
-            </Aux>
+            </Wrapper>
             // </WithClass>
         );
         // return [

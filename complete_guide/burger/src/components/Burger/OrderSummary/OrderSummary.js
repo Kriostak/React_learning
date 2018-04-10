@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Button from '../../UI/Button/Button';
-import Aux from '../../../hoc/Aux';
+import Wrapper from '../../../hoc/Wrapper';
 
 class OrderSummary extends Component {
 
@@ -21,7 +21,7 @@ class OrderSummary extends Component {
         });
 
         return (
-            <Aux>
+            <Wrapper>
                 <h3>Your Order</h3>
                 <p>A delicious burger with the following ingredients:</p>
                 <ul>
@@ -36,7 +36,7 @@ class OrderSummary extends Component {
                     <Button clickMethod={this.props.closeModal} btnType="Danger">Cancel</Button>
                     <Button btnType="Success" clickMethod={this.props.continueHandler}>Continue</Button>
                 </div>
-            </Aux>
+            </Wrapper>
         );
     }
 

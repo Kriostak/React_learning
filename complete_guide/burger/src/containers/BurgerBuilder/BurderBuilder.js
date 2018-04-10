@@ -7,7 +7,7 @@ import OrderSummary from '../../components/Burger/OrderSummary';
 import Modal from '../../components/UI/Modal';
 import Spinner from '../../components/UI/Spinner';
 import WithErrorHandler from '../../hoc/WithErrorHandler';
-import Aux from '../../hoc/Aux';
+import Wrapper from '../../hoc/Wrapper';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -148,7 +148,7 @@ class BurgerBuilder extends Component {
         }
 
         return (
-            <Aux>
+            <Wrapper>
                 <Modal show={this.state.purchasing} hideBackdrop={this.purchaseHandler.bind(this)}>
                     {orderSummary}
                 </Modal>
@@ -159,7 +159,7 @@ class BurgerBuilder extends Component {
                     purchasable={this.state.purchasable}
                     burgerPrice={this.state.totalPrice} 
                     purchase={this.purchaseHandler.bind(this)} />
-            </Aux>
+            </Wrapper>
         );
 
     }

@@ -4,7 +4,7 @@ import styles from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 // import WithClass from '../hoc/WithClass';
-import Aux from '../hoc/Aux';
+import Wrapper from '../hoc/Wrapper';
 import WithClassAnother from '../hoc/WithClassAnother';
 
 class App extends PureComponent {
@@ -126,7 +126,7 @@ class App extends PureComponent {
     return (
         
         // <WithClass classes={styles.App}>
-        <Aux>
+        <Wrapper>
           <button onClick={this.showPersonsHandler}>Show Persons</button>
           <p className={styles.textCenter}>{this.state.toggleClicked}</p>
           <Cockpit 
@@ -135,7 +135,7 @@ class App extends PureComponent {
             personsList={this.state.persons} 
             showPersons={this.state.showPersons} />
           {persons}
-        </Aux>
+        </Wrapper>
         // </WithClass>
     );
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React App!!!'));

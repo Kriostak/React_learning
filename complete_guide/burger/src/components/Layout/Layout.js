@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Toolbar from '../Navigation/Toolbar';
 import SideDrawer from '../Navigation/SideDrawer';
-import Aux from '../../hoc/Aux';
+import Wrapper from '../../hoc/Wrapper';
 
 import styles from './Layout.css';
 
@@ -26,13 +26,13 @@ class Layout extends Component {
 
     render () {
         return (
-            <Aux>
+            <Wrapper>
                 <Toolbar toggleToolbarClicked={this.toogleToolbar} />
                 <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} />
                 <main className={styles.Content}>
                     {this.props.children}
                 </main>
-            </Aux>
+            </Wrapper>
         );
     }
 };
