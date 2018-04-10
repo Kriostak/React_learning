@@ -1,37 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Button from '../../UI/Button/Button';
 import Aux from '../../../hoc/Aux';
 
-const OrderSummary = (props) => {
+class OrderSummary extends Component {
 
-    const ingredientSummary = Object.keys(props.ingredients)
+    componentWillUpdate () {
+        console.log('[OrderSummary] WillUpdate')
+    }
+
+    render () {
+
+        const ingredientSummary = Object.keys(this.props.ingredients)
         .map((item, index) => {
             return (
                 <li key={item + index}>
-                    <span style={{textTransform: 'capitalize'}}>{item}</span>: {props.ingredients[item]}
+                    <span style={{textTransform: 'capitalize'}}>{item}</span>: {this.props.ingredients[item]}
                 </li>
             )
         });
 
-    return (
-        <Aux>
-            <h3>Your Order</h3>
-            <p>A delicious burger with the following ingredients:</p>
-            <ul>
-                {ingredientSummary}
-            </ul>
-            <p>Total price: <strong>{props.burgerPrice.toFixed(2)}</strong></p>
-            <p>Continue to Checkout?</p>
-            <div style={{
-                    display: 'flex',
-                    justifyContent: 'flex-start'
-                }}>
-                <Button clickMethod={props.closeModal} btnType="Danger">Cancel</Button>
-                <Button btnType="Success" clickMethod={props.continueHandler}>Continue</Button>
-            </div>
-        </Aux>
-    );
+        return (
+            <Aux>
+                <h3>Your Order</h3>
+                <p>A delicious burger with the following ingredients:</p>
+                <ul>
+                    {ingredientSummary}
+                </ul>
+                <p>Total price: <strong>{this.props.burgerPrice.toFixed(2)}</strong></p>
+                <p>Continue to Checkout?</p>
+                <div style={{
+                        display: 'flex',
+                        justifyContent: 'flex-start'
+                    }}>
+                    <Button clickMethod={this.props.closeModal} btnType="Danger">Cancel</Button>
+                    <Button btnType="Success" clickMethod={this.props.continueHandler}>Continue</Button>
+                </div>
+            </Aux>
+        );
+    }
 
 };
 

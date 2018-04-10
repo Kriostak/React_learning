@@ -9,7 +9,7 @@ import styles from './Layout.css';
 class Layout extends Component {
 
     state = {
-        showSideDrawer: true
+        showSideDrawer: false
     }
 
     sideDrawerClosedHandler = () => {
@@ -19,15 +19,15 @@ class Layout extends Component {
     }
 
     toogleToolbar = () => {
-        this.setState({
-            showSideDrawer: !this.state.showSideDrawer
+        this.setState((prevState) => {
+            return { showSideDrawer: !prevState.showSideDrawer }
         })
     }
 
     render () {
         return (
             <Aux>
-                <Toolbar toggleToolbar={this.toogleToolbar} />
+                <Toolbar toggleToolbarClicked={this.toogleToolbar} />
                 <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} />
                 <main className={styles.Content}>
                     {this.props.children}
